@@ -70,9 +70,9 @@ The Makefile automates the program’s execution. Ensure you are in the `GATORTI
 Makefile already has a input file name mentioned, on executing the below commands that input file will be taken into consideration
 
 ```bash
-make clean    # Cleans up previous compiled files.
-make all      # Compiles the program.
-make run      # Runs the program using the input file mentioned in the Makefile.
+make clean   
+make all    
+make run    
 ```
 ### 1. Using the Makefile
 The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
