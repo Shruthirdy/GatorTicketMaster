@@ -67,20 +67,12 @@ There are two ways to run the program:
 
 ### 1. Using the Makefile
 The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
-Makefile already has a input file name mentioned, on executing the below commands that input file will be taken into consideration
+- Makefile already has a input file name mentioned, on executing the below commands that input file will be taken into consideration
 
 ```bash
 make clean   
 make all    
 make run    
-```
-### 1. Using the Makefile
-The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
-
-```console
-make clean    
-make all     
-make run     
 ```
 
 ### 2. Manual Compilation and Execution
