@@ -36,6 +36,15 @@ The project consists of the following classes:
 ### 6. **ReservationManager**
 - Handles all operations related to seat reservations, cancellations, and waitlists.
 
+
+- **Input Files**:
+  - `Input1.txt` to `Input5.txt`: Sample input files for testing various scenarios.
+
+- **Output File**:
+  - `output.txt`: Stores the program’s output.
+
+- **Makefile**: Builds, cleans, and runs the program.
+
 ---
 
 ## Usage
@@ -52,6 +61,34 @@ The project consists of the following classes:
    - Provide the input file as a command-line argument or place it in the expected directory.
 
 ---
+
+## Running the Program
+There are two ways to run the program:
+
+### 1. Using the Makefile
+The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
+
+```bash
+make clean    # Cleans up previous compiled files.
+make all      # Compiles the program.
+make run      # Runs the program using the input file mentioned in the Makefile.
+```
+### 1. Using the Makefile
+The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
+
+```console
+make clean    
+make all     
+make run     
+```
+
+### 2. Manual Compilation and Execution
+You can also run the program manually using the following commands:
+
+```console
+javac GatorTicketMaster.java  
+java GatorTicketMaster <Input_file_name>
+```
 
 ## Input Format
 Commands should be written in the input file (`Input.txt`) in the following format:
