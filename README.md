@@ -1,114 +1,130 @@
-# Gator Ticket Master
+# Type Inference in Prolog
 
-## Overview
-The Gator Ticket Master program is a seat booking service for gator events. Users utilize this service to secure attendance at a gator event. The program implementation mainly uses important data structures like Binary Min-Heap, RedBlack Tree.
+## Introduction
 
----
+The goal of this assignment is to implement a type inference algorithm in SWI-Prolog that mimics (in a simpler form) the one used by OCaml. The type inference system deduces the types of inputs and outputs of functions, as well as the types of variables used in expressions, much like OCaml infers types when compiling code.
 
-## Features
-- Reserve seats for users based on priority.
-- Manage or add users to a waiting list when seats are not available.
-- Cancel seat reservations and assign canceled seats to users in the waiting list.
-- Add new seats to the system.
-- Release seat reservations for a range of user ids.
-- Output the current state of reservations and waitlists.
+For example, in OCaml, the function:
 
----
+```ocaml
+let add x y = x + y
+has the type: int -> int -> int (i.e. it takes two integers and returns an integer).
 
-## Project Structure
-The project consists of the following classes:
+The mechanism used to implement type inference is called unification. For more details, see:
 
-### 1. **CustomMinHeap**
-- Manages the waitlist using a Min-Heap structure, prioritizing users by their priority/weights.
+Unification on Wikipedia
+Prolog Unification Slides
+What Is Implemented
+The provided code implements the following components:
 
-### 2. **Element**
-- Represents individual elements in the Min-Heap, including user ID and priority.
+Basic Functions
+Built-in functions (e.g., iplus, fplus, fToInt, iToFloat, print) are defined using the predicate fType/2.
 
-### 3. **GatorReservationController**
-- Processes user commands and coordinates the interactions between various components.
+Statement Types
+The type inference system supports several kinds of statements:
 
-### 4. **GatorTicketMaster**
-- Main class to initialize the program, read inputs, and gives the commands to the controller.
+Global Variable Definitions:
+Defined using the global_define/3 construct (e.g., global_define(x, int, 3) corresponds to OCaml’s let x = 3).
+Global Function Definitions:
+Functions are represented with their type signature in the global environment.
+Expression Statements:
+Expressions are allowed as statements; their type is inferred accordingly.
+If-Else Expressions:
+The type of an if-else expression is inferred by ensuring the condition is of type bool and both branches share the same type.
+Local Variables ("let in" Expressions):
+The let_in/4 construct introduces local variables and infers the type of the resulting expression.
+For Loops:
+The for_loop/4 construct handles loop statements with an integer loop variable.
+Code Blocks:
+Code blocks (sequences of statements) are handled by the predicates infer_code_block/2 and infer_code/2.
+Bonus Features
 
-### 5. **RedBlackTreeImp**
-- Implements a Red-Black Tree to manage reserved seats.
+Sum Types:
+Supported via the sum/2 type constructor.
+Tuple Types:
+Supported via the tuple/2 type constructor.
+Tuple Unpacking:
+Handled via let_in and tuple constructs.
+Match Statements:
+Implemented using the match/2 and pattern/2 constructs to allow pattern matching on expressions.
+Testing
+A comprehensive suite of unit tests (located in the typeInf.plt file) is provided using SWI-Prolog’s plunit framework. These tests cover more than 20 cases, including:
 
-### 6. **ReservationManager**
-- Handles all operations related to seat reservations, cancellations, and waitlists.
+Basic type inference for arithmetic and conversion operations.
+Global variable and function definitions.
+Control flow constructs like if-else, for loops, and let-in.
+Error cases such as type mismatches, incorrect argument counts, and undefined functions.
+Bonus features like sum types, tuple types, and match expressions.
+Running the Code
+A) Starting SWI-Prolog
+On Linux, run:
 
+bash
+Copy
+swipl
+On Windows, run:
 
-- **Input Files**:
-  - `Input1.txt` to `Input5.txt`: Sample input files for testing various scenarios.
+bash
+Copy
+swipl.exe
+B) Loading Your Code
+Load the Prolog source file (e.g., type_inference.pl):
 
-- **Output File**:
-  - `output.txt`: Stores the program’s output.
+prolog
+Copy
+?- [type_inference].
+C) Interacting with the System
+You can ask questions like:
 
-- **Makefile**: Builds, cleans, and runs the program.
+prolog
+Copy
+?- infer_expr(iplus(X, Y), T).
+This should output something like:
 
----
+ini
+Copy
+X = Y, Y = T, T = int.
+D) Tracing Execution
+To trace execution for debugging, enter:
 
-## Usage
-1. **Input File**: The program reads commands from an input text file (e.g., `Input.txt`).
-2. **Commands Supported**:
-   - **Initialize(numSeats)**: Sets up the system with a given number of seats.
-   - **Reserve(userId, priority)**: Reserves a seat for a user or adds them to the waitlist if no seats are available.
-   - **Cancel(seatId, userId)**: Cancels a user's reservation.
-   - **AddSeats(numSeats)**: Adds more seats to the system.
-   - **Release(userId1, userId2)**: Releases reservations for users within the given ID range.
-   - **Print()**: Outputs the current reservation list.
-3. Run the program:
-   - Execute the `GatorTicketMaster` main class.
-   - Provide the input file as a command-line argument or place it in the expected directory.
+prolog
+Copy
+?- trace.
+?- infer_expr(iplus(X, Y), T).
+Press "h" to see available options and "a" to abort if needed. Stop tracing with:
 
----
+prolog
+Copy
+?- notrace.
+E) Running Unit Tests
+Run All Tests:
 
-## Running the Program
-There are two ways to run the program:
+prolog
+Copy
+?- consult("typeInf.plt"), run_tests().
+Run a Specific Test:
 
-### 1. Using the Makefile
-The Makefile automates the program’s execution. Ensure you are in the `GATORTICKETMASTER` directory and execute the following commands:
-- Makefile already has a input file name mentioned, on executing the below commands that input file will be taken into consideration
+prolog
+Copy
+?- consult("typeInf.plt"), run_tests(typeInf:testname).
+Run Specific Test with Tracing:
 
-```bash
-make clean   
-make all    
-make run    
-```
+prolog
+Copy
+?- trace, consult("typeInf.plt"), run_tests(typeInf:testname).
+Reload Tests After Changes:
 
-### 2. Manual Compilation and Execution
-You can also run the program manually using the following commands:
+prolog
+Copy
+?- load_test_files([]).
+Project Structure
+type_inference.pl:
+Contains the implementation of the type inference system. It includes predicates for inferring types of expressions, statements, code blocks, built-in functions, and global definitions.
 
-```console
-javac GatorTicketMaster.java  
-java GatorTicketMaster <Input_file_name>
-```
+typeInf.plt:
+Contains the unit tests for the project. This file tests various components of the type inference system to ensure correctness.
 
-## Input Format
-Commands should be written in the input file (`Input.txt`) in the following format:
+Conclusion
+This project implements a simplified OCaml-style type inference system in Prolog. It supports basic arithmetic, variable definitions, control structures, and bonus features like sum and tuple types along with pattern matching. The comprehensive test suite ensures that all components behave as expected.
 
-```console
-Initialize(5)
-Available()
-Reserve(1, 1)
-Reserve(2, 1)
-Cancel(1, 1)
-Reserve(3, 1)
-PrintReservations()
-Quit()
-```
-## Output Format
-
-```console
-5 Seats are now available for reservation.
-Total Seats Available : 5, Waitlist : 0
-User 1 reserved seat 1
-User 2 reserved seat 2
-User 1 canceled their reservation.
-User 3 reserved seat 1
-[ seat 1, user 3 ]
-[ seat 2, user 2 ]
-Program Terminated!
-```
-
-
-
+Happy coding!
