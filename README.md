@@ -12,10 +12,6 @@ let add x y = x + y
 
 has the type: `int -> int -> int` (i.e., it takes two integers and returns an integer).
 
-The mechanism used to implement type inference is called **unification**. For more details, see:
-- [Unification on Wikipedia](https://en.wikipedia.org/wiki/Unification_(computer_science))
-- [Prolog Unification Slides](#)
-
 ## What Is Implemented
 
 ### 1. Basic Functions
@@ -81,70 +77,28 @@ A comprehensive suite of unit tests (located in the `typeInf.plt` file) is provi
 
 ### A) Starting SWI-Prolog
 
-**On Linux:**
+**On Mac:**
 ```bash
 swipl
-```
-
-**On Windows:**
-```bash
-swipl.exe
 ```
 
 ### B) Loading Your Code
 Load the Prolog source file (e.g., `type_inference.pl`):
 
 ```prolog
-?- [type_inference].
-```
-
-### C) Interacting with the System
-You can ask questions like:
-
-```prolog
-?- infer_expr(iplus(X, Y), T).
-```
-
-This might output something like:
-
-```ini
-X = Y, Y = T, T = int.
-```
-
-### D) Tracing Execution
-To trace execution for debugging, enter:
-
-```prolog
-?- trace.
-?- infer_expr(iplus(X, Y), T).
-```
-
-Press "h" to see available options, and "a" to abort if needed.
-Stop tracing with:
-
-```prolog
-?- notrace.
+?- [typeInf].
 ```
 
 ### E) Running Unit Tests
 #### Run All Tests:
 ```prolog
-?- consult("typeInf.plt"), run_tests().
+?- consult("typeInf.pl"), consult("typeInf.plt").
+?- run_tests(typeInf).
 ```
 
 #### Run a Specific Test:
 ```prolog
-?- consult("typeInf.plt"), run_tests(typeInf:testname).
-```
-
-#### Run a Specific Test with Tracing:
-```prolog
-?- trace, consult("typeInf.plt"), run_tests(typeInf:testname).
-```
-
-#### Reload Tests After Changes:
-```prolog
-?- load_test_files([]).
+?- consult("typeInf.plt"), run_tests(typeInf:<testname>).
 ```
 
 ## Project Structure
@@ -153,9 +107,3 @@ Stop tracing with:
   Contains the implementation of the type inference system. It includes predicates for inferring types of expressions, statements, code blocks, built-in functions, and global definitions.
 - **`typeInf.plt`**
   Contains the unit tests for the project. This file tests various components of the type inference system to ensure correctness.
-
-## Conclusion
-
-This project implements a simplified OCaml-style type inference system in Prolog. It supports basic arithmetic, variable definitions, control structures, and bonus features like sum and tuple types along with pattern matching. The comprehensive test suite ensures that all components behave as expected.
-
-**Happy coding!** 🎉
