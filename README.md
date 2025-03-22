@@ -63,10 +63,14 @@ This project extends a Pascal/Delphi interpreter in Julia to include object-orie
 ### Files in `test/`
 
 Multiple `.pas` test files cover various features, including:
-- **classes_objects_feature.pas**  
-  Demonstrates object-oriented programming with classes and objects.
+- **classes_objects_feature.pas** 
+  Demonstrates basic class creation with a constructor and a method.  
+  Instantiates a `Person` object and calls its `Greet` method to print details.  
+  Verifies object instantiation and method invocation.
 - **constructor_feature.pas** / **destructor_feature.pas**  
-  Demonstrate how constructors and destructors are handled.
+  Tests the constructor functionality by printing messages during object creation.  
+  Initializes a `Book` object with given parameters and displays its details.  
+  Focuses solely on verifying constructor behavior and field initialization.
 - **debug1_simple_var_assign.pas**  
   Basic variable assignment and output.
 - **debug2_inline_var.pas**  
@@ -108,15 +112,25 @@ Multiple `.pas` test files cover various features, including:
 - **debug20_par_child.pas**  
   Another parent/child inheritance scenario.
 - **destructor_feature.pas**  
-  Demonstrates how destructor is handled.
+  Shows destructor functionality by printing messages when an object is freed.  
+  Creates a `Computer` object, runs a simple method, and then calls `Free` to trigger cleanup.  
+  Validates that destructors correctly access and display object field values.
 - **encapsulation_feature.pas**  
-  Encapsulation with private fields and public methods.
+  Demonstrates encapsulation by using private fields accessed only via public methods.  
+  Implements a `BankAccount` class with deposit, withdrawal, and a getter method for balance.  
+  Ensures that field access is controlled and manipulated through public interfaces.
 - **inheritance_feature.pas**  
-  Demonstrates class inheritance.
+  Illustrates simple inheritance where `Circle` inherits from `Shape`.  
+  The derived class extends functionality by adding a new field and overriding a method.  
+  Verifies that method overriding and field inheritance work as expected.
 - **interface_feature.pas**  
-  Demonstrates interface implementation.
+  Tests interface registration and implementation by defining `IPrintable`.  
+  Implements the interface in a `Printer` class and calls its method via an interface reference.  
+  Confirms that interfaces are recognized and their methods can be invoked properly.
 - **polymorphism_feature.pas**  
-  Method overriding and polymorphism example.
+  Demonstrates polymorphism by having a derived class (`Dog`) override a method from its base class (`Animal`).  
+  Creates instances of both `Animal` and `Dog` and calls the `Speak` method.  
+  Validates that the correct (overridden) method is executed based on the object's actual type.
 
 ---
 
