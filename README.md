@@ -1,5 +1,10 @@
 # PLP_Julia Interpreter
 
+## Team Members
+- **Yaswanth Attaluri** - UFID: 10136560  
+- **Shruthi Yaramada** - UFID: 26497222
+
+## Introduction
 This project extends a Pascal/Delphi interpreter in Julia to include object-oriented features (classes, constructors, destructors, inheritance, interfaces, etc.). Below is an overview of the repository structure, instructions on how to run the interpreter, and brief notes on included tests.
 
 ---
