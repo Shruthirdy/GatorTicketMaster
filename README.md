@@ -68,9 +68,9 @@ Multiple `.pas` test files cover various features, including:
   - Instantiates a `Person` object and calls its `Greet` method to print details.  
   - Verifies object instantiation and method invocation.
 - **constructor_feature.pas** / **destructor_feature.pas**  
-  Tests the constructor functionality by printing messages during object creation.  
-  Initializes a `Book` object with given parameters and displays its details.  
-  Focuses solely on verifying constructor behavior and field initialization.
+  - Tests the constructor functionality by printing messages during object creation.  
+  - Initializes a `Book` object with given parameters and displays its details.  
+  - Focuses solely on verifying constructor behavior and field initialization.
 - **debug1_simple_var_assign.pas**  
   Basic variable assignment and output.
 - **debug2_inline_var.pas**  
@@ -112,25 +112,25 @@ Multiple `.pas` test files cover various features, including:
 - **debug20_par_child.pas**  
   Another parent/child inheritance scenario.
 - **destructor_feature.pas**  
-  Shows destructor functionality by printing messages when an object is freed.  
-  Creates a `Computer` object, runs a simple method, and then calls `Free` to trigger cleanup.  
-  Validates that destructors correctly access and display object field values.
+  - Shows destructor functionality by printing messages when an object is freed.  
+  - Creates a `Computer` object, runs a simple method, and then calls `Free` to trigger cleanup.  
+  - Validates that destructors correctly access and display object field values.
 - **encapsulation_feature.pas**  
-  Demonstrates encapsulation by using private fields accessed only via public methods.  
-  Implements a `BankAccount` class with deposit, withdrawal, and a getter method for balance.  
-  Ensures that field access is controlled and manipulated through public interfaces.
+  - Demonstrates encapsulation by using private fields accessed only via public methods.  
+  - Implements a `BankAccount` class with deposit, withdrawal, and a getter method for balance.  
+  - Ensures that field access is controlled and manipulated through public interfaces.
 - **inheritance_feature.pas**  
-  Illustrates simple inheritance where `Circle` inherits from `Shape`.  
-  The derived class extends functionality by adding a new field and overriding a method.  
-  Verifies that method overriding and field inheritance work as expected.
+  - Illustrates simple inheritance where `Circle` inherits from `Shape`.  
+  - The derived class extends functionality by adding a new field and overriding a method.  
+  - Verifies that method overriding and field inheritance work as expected.
 - **interface_feature.pas**  
-  Tests interface registration and implementation by defining `IPrintable`.  
-  Implements the interface in a `Printer` class and calls its method via an interface reference.  
-  Confirms that interfaces are recognized and their methods can be invoked properly.
+  - Tests interface registration and implementation by defining `IPrintable`.  
+  - Implements the interface in a `Printer` class and calls its method via an interface reference.  
+  - Confirms that interfaces are recognized and their methods can be invoked properly.
 - **polymorphism_feature.pas**  
-  Demonstrates polymorphism by having a derived class (`Dog`) override a method from its base class (`Animal`).  
-  Creates instances of both `Animal` and `Dog` and calls the `Speak` method.  
-  Validates that the correct (overridden) method is executed based on the object's actual type.
+  - Demonstrates polymorphism by having a derived class (`Dog`) override a method from its base class (`Animal`).  
+  - Creates instances of both `Animal` and `Dog` and calls the `Speak` method.  
+  - Validates that the correct (overridden) method is executed based on the object's actual type.
 
 ---
 
