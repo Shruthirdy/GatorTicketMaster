@@ -64,9 +64,9 @@ This project extends a Pascal/Delphi interpreter in Julia to include object-orie
 
 Multiple `.pas` test files cover various features, including:
 - **classes_objects_feature.pas** 
-  Demonstrates basic class creation with a constructor and a method.  
-  Instantiates a `Person` object and calls its `Greet` method to print details.  
-  Verifies object instantiation and method invocation.
+  - Demonstrates basic class creation with a constructor and a method.  
+  - Instantiates a `Person` object and calls its `Greet` method to print details.  
+  - Verifies object instantiation and method invocation.
 - **constructor_feature.pas** / **destructor_feature.pas**  
   Tests the constructor functionality by printing messages during object creation.  
   Initializes a `Book` object with given parameters and displays its details.  
