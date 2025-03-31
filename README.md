@@ -1,180 +1,83 @@
-# PLP_Julia Interpreter
+# 🌟 Impacta - Crowdfunding for Small Causes
+ 
+ Impacta is a crowdfunding platform designed to help individuals contribute to **meaningful causes**, ensuring transparency and ease of donation.
+ 
+ ---
+ 
+ ## 🚀 Project Overview (Sprint 2)
+ 
+Sprint3, focused on extending Impacta's backend functionality by adding full CRUD support for four new services: **Notifications**, **Support Tickets**, **Payment Transactions**, and **Withdrawals**. Notifications and Support Tickets, ensures that users can receive timely alerts and manage support queries (with admin-restricted answer updates). Payment Transactions and Withdrawals, focuses on secure transaction recording and withdrawal management with admin-controlled updates and bulk deletions. These enhancements provide robust communication and financial tracking features essential for our crowdfunding platform.
+ 
+ 
+ ---
+ 
+ 
+ ## 🏆 Sprint 3 Breakdown
+ 
+ | Issue # | Task Description                                                                                                  | Assigned To         | Status        |
+ |---------|-------------------------------------------------------------------------------------------------------------------|---------------------|---------------|
+ | **Frontend Tasks** |                                                                                                  |                     |               |
+ | S2-F01  | Develop and integrate Campaign Creator Dashboard (UI & Functionality)                                              | Vennela             | ✅ Completed  |
+ | S2-F02  | Implement campaign statistics section (Total Campaigns, Active Campaigns, Funds Raised)                            | Vennela             | ✅ Completed  |
+ | S2-F03  | Design and integrate Donation Cards displaying campaign details                                                    | Vennela             | ✅ Completed  |
+ | S2-F04  | Implement Create Campaign private route inside the dashboard                                                       | Vennela             | ✅ Completed  |
+ | S2-F05  | Implement form fields for Title, Description, Goal, Category, Image Upload, Duration                               | Vennela             | ✅ Completed  |
+ | S2-F06  | Integrate API for campaign creation with backend                                                                   | Vennela             | ✅ Completed  |
+ | S2-F07  | Develop Impacta Donation Page with campaign details and donor interactions                                         | Deepthi             | ✅ Completed  |
+ | S2-F08  | Implement Banner Image, Title, Description, and Funding Metrics in the donation page                               | Deepthi             | ✅ Completed  |
+ | S2-F09  | Integrate API for donation page - comments api,campaigndetails,donation details.Also added Donate Now & Share Buttons for donor engagement | Deepthi             | ✅ Completed  |
+ | S2-F10  | Setup Axios-based API integration for fetching campaign details, media, donations, and comments                    | Deepthi             | ✅ Completed  |
+ | S2-F11  | Integrate PayPal Smart Payment Buttons for seamless donation transactions                                          | Deepthi             | ✅ Completed  |
+ | S2-F12  | Implement Cloudinary for media storage                                                                             | Vennela             | ✅ Completed  |
+ | S2-F13  | Implement Unit & Cypress Tests for Login Page                                                                      | Deepthi             | ✅ Completed  |
+ | S2-F14 | Implement Unit & Cypress Tests for Donor Dashboard                                                                  | Deepthi             | ✅ Completed  |
+ | S2-F15  | Implement Unit & Cypress Tests for Register Page                                                                   | Vennela             | ✅ Completed  |
+ | S2-F16  | Implement Unit & Cypress Tests for Create Campaign Page                                                            | Vennela             | ✅ Completed  |
+ | **Backend Tasks**  |                                                                                                  |                     |               |
+ | S3-B01      | Implement full CRUD endpoints for Notifications                                                            | Chandan         | ✅ Completed  |
+| S3-B02      | Create unit tests for Notifications endpoints                                                              | Chandan         | ✅ Completed  |
+| S3-B03      | Implement full CRUD endpoints for Support Tickets (including query & answer fields, with role checks)       | Chandan         | ✅ Completed  |
+| S3-B04      | Create unit tests for Support Tickets endpoints                                                            | Chandan         | ✅ Completed  |
+| S3-B05      | Implement full CRUD endpoints for Payment Transactions (admin-only update & bulk delete)                     | Shruthi         | ✅ Completed  |
+| S3-B06      | Create unit tests for Payment Transactions endpoints                                                       | Shruthi         | ✅ Completed  |
+| S3-B07      | Implement full CRUD endpoints for Withdrawals (admin-only update & bulk delete)                             | Shruthi         | ✅ Completed  |
+| S3-B08      | Create unit tests for Withdrawal endpoints                                                                 | Shruthi         | ✅ Completed  |
+ 
+ 
+### Sprint 3 Backend Development Summary
 
-## Team Members
-- **Yaswanth Attaluri** - UFID: 10136560  
-- **Shruthi Yaramada** - UFID: 26497222
-
-## Introduction
-This project extends a Pascal/Delphi interpreter in Julia to include object-oriented features (classes, constructors, destructors, inheritance, interfaces, etc.). Below is an overview of the repository structure, instructions on how to run the interpreter, and brief notes on included tests.
-
----
-
-## Project Structure
-
-    PLP_JULIA/
-    ├── src/
-    │   ├── abstract_syntax_tree.jl
-    │   ├── delphi_interpreter.jl
-    │   ├── lexer.jl
-    │   └── parser.jl
-    └── test/
-        ├── classes_objects_feature.pas
-        ├── constructor_feature.pas
-        ├── debug1_simple_var_assign.pas
-        ├── debug2_inline_var.pas
-        ├── debug3_arith_eval.pas
-        ├── debug4_if_else.pas
-        ├── debug5_input_output.pas
-        ├── debug6_obj_inst.pas
-        ├── debug7_class_inst.pas
-        ├── debug8_interf_decl.pas
-        ├── debug9_class_method.pas
-        ├── debug10_uses_Clause.pas
-        ├── debug11_simple_interface.pas
-        ├── debug12_class_life_cycle.pas
-        ├── debug13_param_bind.pas
-        ├── debug14_primitive_type.pas
-        ├── debug15_simple_obj_instance.pas
-        ├── debug16_construct_destruct.pas
-        ├── debug17_inher_override.pas
-        ├── debug18_interface.pas
-        ├── debug19_access_modifier.pas
-        ├── debug20_par_child.pas
-        ├── destructor_feature.pas
-        ├── encapsulation_feature.pas
-        ├── inheritance_feature.pas
-        ├── interface_feature.pas
-        ├── polymorphism_feature.pas
-
-### Files in `src/`
-
-- **abstract_syntax_tree.jl**  
-  Defines the AST (Abstract Syntax Tree) node types for the language constructs.
-
-- **delphi_interpreter.jl**  
-  The main interpreter module. Sets up global environments, loads the lexer and parser, and interprets the generated AST.
-
-- **lexer.jl**  
-  Responsible for tokenizing source code, handling whitespace, comments, operators, keywords, etc.
-
-- **parser.jl**  
-  Parses the token stream into an AST. Supports class/interface definitions, control structures, variable declarations, expressions, and more.
-
-### Files in `test/`
-
-Multiple `.pas` test files cover various features, including:
-- **classes_objects_feature.pas** 
-  - Demonstrates basic class creation with a constructor and a method.  
-  - Instantiates a `Person` object and calls its `Greet` method to print details.  
-  - Verifies object instantiation and method invocation.
-- **constructor_feature.pas** / **destructor_feature.pas**  
-  - Tests the constructor functionality by printing messages during object creation.  
-  - Initializes a `Book` object with given parameters and displays its details.  
-  - Focuses solely on verifying constructor behavior and field initialization.
-- **debug1_simple_var_assign.pas**  
-  Basic variable assignment and output.
-- **debug2_inline_var.pas**  
-  Inline variable declaration and assignment.
-- **debug3_arith_eval.pas**  
-  Arithmetic expressions.
-- **debug4_if_else.pas**  
-  If-else conditionals.
-- **debug5_input_output.pas**  
-  ReadLn and WriteLn usage.
-- **debug6_obj_inst.pas**  
-  Object instantiation and dictionary representation.
-- **debug7_class_inst.pas**  
-  Minimal class definition test.
-- **debug8_interf_decl.pas**  
-  Interface registration demonstration.
-- **debug9_class_method.pas**  
-  Class method registration and usage.
-- **debug10_uses_Clause.pas**  
-  Another class instantiation test.
-- **debug11_simple_interface.pas**  
-  Simple interface definition test.
-- **debug12_class_life_cycle.pas**  
-  Shows constructor and destructor calls.
-- **debug13_param_bind.pas**  
-  Method parameter binding.
-- **debug14_primitive_type.pas**  
-  Demonstrates integer, string, boolean usage.
-- **debug15_simple_obj_instance.pas**  
-  Displays instance data.
-- **debug16_construct_destruct.pas**  
-  Another constructor/destructor example.
-- **debug17_inher_override.pas**  
-  Simple inheritance example.
-- **debug18_interface.pas**  
-  Interface feature demonstration (with warnings for interface inheritance).
-- **debug19_access_modifier.pas**  
-  Shows public/private usage (not strictly enforced).
-- **debug20_par_child.pas**  
-  Another parent/child inheritance scenario.
-- **destructor_feature.pas**  
-  - Shows destructor functionality by printing messages when an object is freed.  
-  - Creates a `Computer` object, runs a simple method, and then calls `Free` to trigger cleanup.  
-  - Validates that destructors correctly access and display object field values.
-- **encapsulation_feature.pas**  
-  - Demonstrates encapsulation by using private fields accessed only via public methods.  
-  - Implements a `BankAccount` class with deposit, withdrawal, and a getter method for balance.  
-  - Ensures that field access is controlled and manipulated through public interfaces.
-- **inheritance_feature.pas**  
-  - Illustrates simple inheritance where `Circle` inherits from `Shape`.  
-  - The derived class extends functionality by adding a new field and overriding a method.  
-  - Verifies that method overriding and field inheritance work as expected.
-- **interface_feature.pas**  
-  - Tests interface registration and implementation by defining `IPrintable`.  
-  - Implements the interface in a `Printer` class and calls its method via an interface reference.  
-  - Confirms that interfaces are recognized and their methods can be invoked properly.
-- **polymorphism_feature.pas**  
-  - Demonstrates polymorphism by having a derived class (`Dog`) override a method from its base class (`Animal`).  
-  - Creates instances of both `Animal` and `Dog` and calls the `Speak` method.  
-  - Validates that the correct (overridden) method is executed based on the object's actual type.
-
----
-
-## How to Run
-
-1. **Install Julia**  
-   Download and install [Julia](https://julialang.org/downloads/) if you haven't already.
-
-2. **Navigate to `src/`**  
-   In a terminal, change to the `src` directory of this project.
-
-3. **Run the Interpreter**  
-   Use the following command, replacing `<test_file>.pas` with the path to a test file in the `test/` directory:
-   ```bash
-   julia delphi_interpreter.jl ../test/<test_file>.pas
-   ```
-
-    For example:
-    ```bash
-    julia delphi_interpreter.jl ../test/debug1_simple_var_assign.pas
-    ```
-### Observe Output
-The interpreter will parse and execute the specified .pas file, printing any output, including object dictionaries if applicable.
-
-## Features
-
-- **Classes and Objects:**  
-  Define classes with fields and methods, instantiate objects, and call methods or access fields.
-
-- **Constructors and Destructors:**  
-  Demonstrate object lifecycle by running initialization and cleanup code.
-
-- **Inheritance and Polymorphism:**  
-  Support single inheritance and method overriding. Polymorphism is tested in some files by calling overridden methods on derived classes.
-
-- **Encapsulation:**  
-  Supports private fields and public methods to enforce data hiding and controlled access.
-
-- **Interfaces:**  
-  Classes can implement interfaces, though inheritance from interfaces shows a warning and is skipped.
-
-- **Expressions and Control Flow:**  
-  Handle variable declarations, assignments, arithmetic expressions, conditionals (if-else), loops (while), and more.
-
-- **Input/Output:**  
-  ReadLn for input and WriteLn for output.
-
+- Implemented full CRUD endpoints for **Notifications** with secure, role-based access control.
+- Developed comprehensive **Support Tickets** endpoints with extended fields (query & answer) and restricted answer updates to admins.
+- Added full CRUD functionality for **Payment Transactions**, including admin-only updates and bulk deletion.
+- Created complete endpoints for **Withdrawals** to manage campaign fund disbursements with admin-controlled updates.
+- Integrated unit tests for all new endpoints, improving error handling and logging for enhanced backend reliability.
+ 
+ 
+ ### Frontend Development Summary
+ 
+ Key improvements include:
+ 
+ - **Dynamic Donor Dashboard:** An interactive dashboard that displays real-time campaign statistics, donation data, and campaign details.
+ - **Updated API Integration:** Seamless integration of updated API endpoints for campaigns, donations, media files, and comments, ensuring real-time data updates and improved responsiveness.
+ - **Enhanced UI Components:** New components such as campaign statistics, donation cards, and interactive elements (e.g., Donate Now & Share buttons) that enrich the overall user interface.
+ - **Payment Integration:** Implementation of PayPal Smart Payment Buttons for smooth and secure donation transactions.
+ - **Media Management:** Integration of Cloudinary for robust media storage and retrieval, supporting campaign-related images and videos.
+ 
+ 
+ ---
+ 
+ ## 👥 Contributors
+ 
+ - **Vennela** - Frontend Development
+ - **Deepthi** - Frontend Development
+ - **Chandan** - Backend Development
+ - **Shruthi** - Backend Development
+ 
+   ## 🎬 Frontend Walkthrough Video
+ 📽️ Watch the full frontend walkthrough here: [Frontend Walkthrough Video](https://youtu.be/Rl5WHgtAUi4)
+ 
+ ## 🎬 Backend Walkthrough Video
+ 📽️ Watch the full backend walkthrough here: [Backend Walkthrough Video](https://www.youtube.com/watch?v=25DhEfzo-fY)
+ 
+ 
+ 🚀 **Impacta - Empowering Small Causes, One Donation at a Time!**
