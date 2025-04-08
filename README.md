@@ -1,5 +1,9 @@
 # Delphi Interpreter - Project 2
 
+## Team Members
+- **Yaswanth Attaluri** - UFID: 10136560  
+- **Shruthi Yaramada** - UFID: 26497222
+
 ## Overview
 
 This project is a continuation and extension of Project 1, where we initially implemented an interpreter for a subset of the Delphi (Object Pascal) language using ANTLR4 and Java.
@@ -8,9 +12,9 @@ In **Project 2**, we enhance the language support by introducing critical langua
 
 ---
 
-## 🔧 Features Implemented
+## Features Implemented
 
-### ✅ From Project 1
+### From Project 1
 
 - Class and Object Declarations  
 - Constructors and Destructors  
@@ -55,15 +59,15 @@ In **Project 2**, we enhance the language support by introducing critical langua
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
-### ✅ Requirements
+### Requirements
 
 - Java 11 or higher  
 - ANTLR 4.9.2  
 - Bash terminal (for Unix/Mac) or Command Prompt (Windows)
 
-### 🔧 Compilation and Execution and Testing
+### Compilation and Execution and Testing
 
 ```bash
 # From the root of the project directory (from antlr_plp folder)
@@ -74,7 +78,7 @@ java -cp .:lib/antlr-4.9.2-complete.jar:src src/DelphiInterpreter.java test/<tes
 
 ---
 
-## 🧪 Test Suite
+## Test Suite
 
 A total of **27 test files** have been created to verify all features implemented in both Project 1 and Project 2.
 
@@ -110,4 +114,4 @@ Each test covers specific language functionality:
 | test26_ConstantPropagation.pas    | Compile-Time Constant Expression Test: Tests constant folding.              |
 | test27_ParameterPassingTest.pas   | Parameter Passing Test: Verifies parameter handling in procedures/functions. |
 
-✅ **All test outputs are verified and match expected behavior.**
+**All test outputs are verified and match expected behavior.**
