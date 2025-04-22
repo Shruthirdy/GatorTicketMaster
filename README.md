@@ -38,6 +38,11 @@ Additionally, the backend was structured for Grafana and Prometheus integration,
 | S4-F02   | Add Category Filter Tabs: Tabs for categories like education, health, etc. for quick filtering.                | Deepthi         | ✅ Completed |
 | S4-F03   | Add Status Toggle Filters: Toggle buttons to filter by campaign status (pending / active / inactive).         | Deepthi         | ✅ Completed |
 | S4-F04   | Implement Social Share Button: Allow users to share campaigns via WhatsApp, Twitter, or Instagram.            | Deepthi         | ✅ Completed |
+| S4-F05    | Developed “Ask Question” form with fields (question, type, priority, optional campaign), inline validation, and POST integration to support API | Vennela     | ✅ Completed |
+| S4-F06    | Created Support Ticket Dashboard for admins to view and answer tickets with inline editing and status update                                     | Vennela     | ✅ Completed |
+| S4-F07    | Implemented “My Questions” tab to show user’s submitted tickets and dynamic answer visibility after admin updates                               | Vennela     | ✅ Completed |
+| S4-F08    | Built static FAQs tab loading common questions from `/api/faqs`, added filters by Type and Priority for better user experience                 | Vennela     | ✅ Completed |
+| S4-F09    | Added Vitest unit tests and Cypress E2E tests for support ticket form, dashboard views, admin answer flow, and user ticket updates             | Vennela     | ✅ Completed |
 
 ---
 
