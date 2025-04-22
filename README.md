@@ -24,6 +24,7 @@ Additionally, the backend was structured for Grafana and Prometheus integration,
 
 | Issue # | Task Description | Assigned To | Status |
 |---------|------------------|-------------|--------|
+ | *Backend Tasks* |                                                                                                  |                     | 
 | S4-B01 | Integrate SMTP-based email notifications using `net/smtp` | Shruthi | ✅ Completed |
 | S4-B02 | Trigger welcome email upon user registration | Shruthi | ✅ Completed |
 | S4-B03 | Trigger campaign confirmation email with campaign details and dashboard link | Shruthi | ✅ Completed |
@@ -32,6 +33,11 @@ Additionally, the backend was structured for Grafana and Prometheus integration,
 | S4-B06  | Add **Go Metrics Dashboard** in Grafana for request tracking                                      | Chandan     | ✅ Completed |
 | S4-B07  | Add **Node Exporter Dashboard** for server performance insights                                   | Chandan     | ✅ Completed |
 | S4-B08  | Add **System Health Dashboard** for CPU, memory, and disk monitoring                              | Chandan     | ✅ Completed |
+ | *Frontend Tasks* |                                                                                                  |                     | 
+ | S4-F01   | Add Real-Time Campaign Search: Search bar filters campaigns by title/description instantly (no API call).     | Deepthi         | ✅ Completed |
+| S4-F02   | Add Category Filter Tabs: Tabs for categories like education, health, etc. for quick filtering.                | Deepthi         | ✅ Completed |
+| S4-F03   | Add Status Toggle Filters: Toggle buttons to filter by campaign status (pending / active / inactive).         | Deepthi         | ✅ Completed |
+| S4-F04   | Implement Social Share Button: Allow users to share campaigns via WhatsApp, Twitter, or Instagram.            | Deepthi         | ✅ Completed |
 
 ---
 
