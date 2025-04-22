@@ -1,25 +1,37 @@
-# 📬 SMTP Email Notification Integration (New Feature)
-
-We’ve added SMTP-based email notifications to enhance user engagement and platform communication. This new feature automatically sends beautifully styled HTML emails upon **user registration** and **campaign creation**, helping users stay informed and feel welcomed.
+# ✨ Impacta - Crowdfunding for Small Causes
+Impacta is a crowdfunding platform designed to help individuals contribute to *meaningful causes*, ensuring transparency and ease of donation.
 
 ---
 
-### 🔔 Feature Highlights
+## 🚀 Project Overview (Sprint 4)
+Our backend team focused on user engagement and system monitoring enhancements. We implemented email notification functionality via SMTP to notify users upon key events like registration and campaign creation. The notification system includes customizable HTML templates for improved branding and user experience. Sensitive operations like user registration and campaign creation now trigger asynchronous email dispatches using Go routines to ensure non-blocking performance.
+
+Additionally, the backend was structured for Grafana and Prometheus integration, laying the groundwork for system observability and performance tracking in future sprints. Routes and handlers were modularized further, and response consistency was improved across endpoints. With these additions, Impacta now offers a more interactive and responsive experience, backed by robust backend operations and proactive communication features. 
+
+
+---
+
+### Feature Highlights
 
 | Feature | Description | Trigger Event |
 |--------|-------------|----------------|
-| 🎉 **Welcome Email** | Sends a personalized welcome message to new users with Impacta branding and message styling. | On successful user registration |
-| 📢 **Campaign Created Email** | Notifies campaign creators that their campaign has been created and provides a link to their campaign dashboard. | On successful campaign creation |
+| **Welcome Email** | Sends a personalized welcome message to new users with Impacta branding and message styling. | On successful user registration |
+| **Campaign Created Email** | Notifies campaign creators that their campaign has been created and provides a link to their campaign dashboard. | On successful campaign creation |
 
 ---
 
-### 💻 Backend Integration
+### Backend Integration
 
 | Issue # | Task Description | Assigned To | Status |
 |---------|------------------|-------------|--------|
-| S3-B01 | Integrate SMTP-based email notifications using `net/smtp` | Shruthi | ✅ Completed |
-| S3-B02 | Trigger welcome email upon user registration | Shruthi | ✅ Completed |
-| S3-B03 | Trigger campaign confirmation email with campaign details and dashboard link | Shruthi | ✅ Completed |
+| S4-B01 | Integrate SMTP-based email notifications using `net/smtp` | Shruthi | ✅ Completed |
+| S4-B02 | Trigger welcome email upon user registration | Shruthi | ✅ Completed |
+| S4-B03 | Trigger campaign confirmation email with campaign details and dashboard link | Shruthi | ✅ Completed |
+| S4-B04  | Set up Go metrics endpoints for Prometheus integration                                            | Chandan     | ✅ Completed |
+| S4-B05  | Integrate Prometheus and configure Grafana dashboards                                             | Chandan     | ✅ Completed |
+| S4-B06  | Add **Go Metrics Dashboard** in Grafana for request tracking                                      | Chandan     | ✅ Completed |
+| S4-B07  | Add **Node Exporter Dashboard** for server performance insights                                   | Chandan     | ✅ Completed |
+| S4-B08  | Add **System Health Dashboard** for CPU, memory, and disk monitoring                              | Chandan     | ✅ Completed |
 
 ---
 
@@ -40,9 +52,27 @@ Emails are sent in **HTML format** with inline CSS for enhanced readability and 
 - **Integration Points:** `controllers/user_controller.go`, `controllers/campaign_controller.go`
 - **Non-blocking Sending:** Email sending runs in a background goroutine to avoid blocking API responses
 
+To strengthen infrastructure monitoring, we integrated **Prometheus and Grafana** with support for **Go metrics exposure** and **node-level system diagnostics**. Three detailed Grafana dashboards were created:
+
+- **Go App Metrics Dashboard** – for monitoring HTTP request rates, latencies, and error counts.
+- **Node Exporter Dashboard** – for viewing real-time hardware metrics such as CPU usage, memory, disk I/O.
+- **System Health Dashboard** – for analyzing system-level performance including CPU load, RAM usage, and network bandwidth.
+
 ---
 
-## 🧑‍💻 Contributors
+ ## 👥 Contributors
 
-- **Shruthi** - Backend Email Integration, Template Design, and SMTP Setup
+- **Vennela** - Frontend Development
+- **Deepthi** - Frontend Development
+- **Chandan** - Backend Development
+- **Shruthi** - Backend Development
+
+## 🎬 Frontend Walkthrough Video
+📽️ Watch the full frontend walkthrough here: [Frontend Walkthrough Video](https://youtu.be/6bDxygBRL54)
+
+## 🎬 Backend Walkthrough Video
+📽️ Watch the full backend walkthrough here: [Backend Walkthrough Video](https://youtu.be/yIxtH9PpRfg)
+
+
+🚀 **Impacta - Empowering Small Causes, One Donation at a Time!**
 
